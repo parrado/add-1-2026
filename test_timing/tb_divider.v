@@ -2,12 +2,13 @@
 
 
 // Module for counter testbench
-module tb_mac;
+module tb_divider;
 
 // Counter signals
 reg clk,en,rst;
-reg [15:0]x1,x2 ;
-wire [39:0]y;
+reg [15:0]x2;
+wire[15:0] y ;
+reg [31:0]x1;
 
 
 // clk_period in timescale units
@@ -18,11 +19,8 @@ parameter rst_time=100;
 // Unit under test
 //counter uut
 //counter_struct uut
-mac uut
+divider uut
 (
-.clk(clk),
-.en(en),
-.rst(rst),
 .x1(x1),
 .x2(x2),
 .y(y)
@@ -36,11 +34,11 @@ initial begin
  en=0;
  #rst_time
  en=1;
- x1=-1256;
+ x1=126567892;
  x2=15789;
  #clk_period
-  x1=25674;
- x2=-3891;
+  x1=256748369;
+ x2=13891;
  #clk_period
  en=0;
 end
